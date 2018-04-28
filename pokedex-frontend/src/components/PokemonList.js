@@ -10,7 +10,6 @@ class PokemonList extends React.Component {
     render() {
         return(
             <div>
-                <h1>{this.props.header}</h1>
                 <ul className="list-group">
                     {
                         this.props.pokemonList.map( ( e, i ) => {

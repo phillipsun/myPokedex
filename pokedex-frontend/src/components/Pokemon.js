@@ -37,11 +37,12 @@ class Pokemon extends React.Component {
         return(
             <div>
                 <li
+                    className="list-group-item"
                     onClick={() => this.getDetailsHandler(this.props.name)}
                 >
                     {this.props.name}
+                    {this.renderButton()}
                 </li>
-                {this.renderButton()}
             </div>
         )
     }

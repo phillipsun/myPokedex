@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import PokemonList from './components/PokemonList'
 import PokemonDetails from './components/PokemonDetails'
+import Headline from './components/Headline'
 
 class App extends Component {
 
@@ -54,21 +55,32 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to myPokedex</h1>
         </header>
-        <PokemonList
-          header="Pokemon Index"
-          pokemonList={this.state.pokemonList}
-          getPokemonDetails={this.getPokemonDetails}
-        />
-        <PokemonDetails 
-          details={this.state.pokemonDetails}
-          addPokemonHandler={this.addPokemonHandler}
-        />
-        <PokemonList
-          header="Captured Pokemon"
-          pokemonList={this.state.capturedPokemonList}
-          getPokemonDetails={this.getPokemonDetails}
-          isCaptured
-        />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
+              <Headline text="Pokemon Index" />
+              <PokemonList
+                pokemonList={this.state.pokemonList}
+                getPokemonDetails={this.getPokemonDetails}
+              />
+            </div>
+            <div className="col-md-4">
+              <Headline text="Pokemon Details" />
+              <PokemonDetails 
+                details={this.state.pokemonDetails}
+                addPokemonHandler={this.addPokemonHandler}
+              />
+            </div>
+            <div className="col-md-4 captured">
+              <Headline text="Captured Pokemon" />
+              <PokemonList
+                pokemonList={this.state.capturedPokemonList}
+                getPokemonDetails={this.getPokemonDetails}
+                isCaptured
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -31,7 +31,6 @@ class PokemonDetails extends React.Component {
     render() {
         return(
             <div>
-                <h2>Pokemon Details</h2>
                 <p>Pokemon Species: {this.props.details.name}</p>
                 <p>Height: {this.props.details.height}</p>
                 <p>Weight: {this.props.details.weight}</p>
