@@ -5,6 +5,7 @@ import './App.css';
 import PokemonList from './components/PokemonList'
 import PokemonDetails from './components/PokemonDetails'
 import Headline from './components/Headline'
+import CapturedPokemon from './components/CapturedPokemon'
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
 
     this.getPokemonDetails = this.getPokemonDetails.bind(this)
     this.addPokemonHandler = this.addPokemonHandler.bind(this)
+    this.addCapturedPokemon = this.addCapturedPokemon.bind(this)
   }
 
   componentDidMount() {
@@ -48,6 +50,15 @@ class App extends Component {
     })
   }
 
+
+
+  addCapturedPokemon() {
+    let nameInput = document.getElementById('pokemon-name').value
+    let nicknameInput = document.getElementById('pokemon-nickname').value
+    axios.post('/api/capturedpokemon')
+      .then( (req, res) => console.log(res.data))
+  }
+
   render() {
     return (
       <div className="App">
@@ -73,11 +84,13 @@ class App extends Component {
             </div>
             <div className="col-md-4 captured">
               <Headline text="Captured Pokemon" />
-              <PokemonList
+              {/* <PokemonList
                 pokemonList={this.state.capturedPokemonList}
                 getPokemonDetails={this.getPokemonDetails}
                 isCaptured
-              />
+              /> */}
+              <CapturedPokemon 
+                addCapturedPokemon={this.addCapturedPokemon}/>
             </div>
           </div>
         </div>
